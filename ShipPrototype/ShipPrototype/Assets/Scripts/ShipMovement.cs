@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,7 @@ public class ShipMovement : MonoBehaviour
     public float turnSpeed;
     public float verticalInput;
     public float horizontalInput;
+    public GameObject projectilePrefab;
     // Start is called before the first frame update
    void FixedUpdate()
    {
@@ -23,6 +24,11 @@ public class ShipMovement : MonoBehaviour
        transform.Rotate(Vector3.forward, turnSpeed * verticalInput * Time.deltaTime);
        //Tilts left and right
        transform.Rotate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+       //Space bar for projectiles
+       if (Input.GetKeyDown(KeyCode.Space)){
+           Instantiate(projectilePrefab, transform.position,projectilePrefab.transform.rotation);
+       }
 
        
    }

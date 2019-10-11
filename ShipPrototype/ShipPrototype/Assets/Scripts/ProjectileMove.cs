@@ -14,6 +14,7 @@ public class ProjectileMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Moves projectile forward
         transform.Translate(Vector3.left * Time.deltaTime * speed);
     }
 }

@@ -8,7 +8,9 @@ public class ShipMovement : MonoBehaviour
     public float turnSpeed;
     public float verticalInput;
     public float horizontalInput;
-    public GameObject projectilePrefab;
+    public GameObject LowPolyMissile;
+    public GameObject LowPolyShip;
+    public GameObject spawnPosObj;
     // Start is called before the first frame update
    void FixedUpdate()
    {
@@ -27,7 +29,10 @@ public class ShipMovement : MonoBehaviour
 
        //Space bar for projectiles
        if (Input.GetKeyDown(KeyCode.Space)){
-           Instantiate(projectilePrefab, transform.position,projectilePrefab.transform.rotation);
+           //this implies object variable
+           GameObject LowPolyMissile = (GameObject) Instantiate(this.LowPolyMissile, spawnPosObj.transform.position, transform.rotation);
+
+            LowPolyMissile.GetComponent<ProjectileMove>().travelDirection = transform.right; //<Make this go backwards
        }
 
        

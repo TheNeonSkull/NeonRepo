@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileMove : MonoBehaviour
 {
-    public float speed = 40;
+    public Vector3 travelDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class ProjectileMove : MonoBehaviour
     void Update()
     {
         //Moves projectile forward
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        transform.Translate(travelDirection * 50 * Time.deltaTime);
     }
 }
